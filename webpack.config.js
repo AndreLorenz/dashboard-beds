@@ -53,7 +53,7 @@ module.exports = env => {
                     }))
                 },
                 {
-                    test: /\.(woff2?|ttf|eot|svg)$/,
+                    test: /\.(woff2?|ttf|eot)$/,
                     use: [{
                         loader: "file-loader",
                         options: { name: "./fonts/[hash].[ext]" }

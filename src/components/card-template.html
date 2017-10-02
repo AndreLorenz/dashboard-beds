@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="cards-container">
+    <div class="cards-content" ng-repeat="card in $ctrl.cards">
+      <div class="card-title">
+        <div class="bed-informations">
+          <div ng-if="card.number % 2 == 0" class="bed-status">
+          </div>
+          <span class="bed-name">
+            {{card.bedInfo.description}}
+          </span>
+        </div>
+        <div class="bed-icons">
+          <img ng-repeat="status in card.bedInfo.bedStatus" class="icon-bed-check" src="./../assets/bed-check.svg">
+        </div>
+      </div>
+      <div class="card-content">
+        {{card.patientName}}
+        <br> {{card.content}}
+      </div>
+      <div class="card-footer">
+        {{card.footer}}
+      </div>
+    </div>
+  </div>
+</div>

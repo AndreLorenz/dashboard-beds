@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#9E9E9E;}
+	.st2{fill:#3FB763;}
+	.st3{fill:#FFFFFF;}
+</style>
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M11,17.5c0-3.4210205,2.6445923-6.2185669,6-6.4747314V2H2v18h9.4998169
+			C11.1787109,19.2302246,11,18.3861694,11,17.5z"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st0">
+		<circle class="st1" cx="10" cy="4" r="2"/>
+		<path class="st1" d="M10,7.0001054C8.7656116,6.9873652,6.6214738,8.1314631,6,10h8
+			C13.3785267,8.1314631,11.2343884,6.9873652,10,7.0001054z"/>
+		<path class="st1" d="M6,4H3v6h2V6h1V4z"/>
+		<rect x="2" y="18" class="st1" width="2" height="2"/>
+		<rect x="16" y="18" class="st1" width="2" height="2"/>
+		<path class="st1" d="M2,11v6h16c0-2.25,0-6,0-6H2z"/>
+		<path class="st1" d="M14,6h1v4l2.0000019,0.0000334V4.0000167h-3.000001L14,6z"/>
+	</g>
+</g>
+<g id="check" transform="translate(11.000000, 11.000000)">
+	<g>
+		<circle id="Oval-2_2_" class="st2" cx="6.5" cy="6.5" r="5.5"/>
+		<path id="Combined-Shape_2_" class="st3" d="M5.6528234,7.3887057L9.0415297,4L10,4.9584708L6.3014941,8.6569767
+			L5.6528234,9.3056469L3,6.6528234l0.9584708-0.9584708L5.6528234,7.3887057z"/>
+	</g>
+</g>
+</svg>

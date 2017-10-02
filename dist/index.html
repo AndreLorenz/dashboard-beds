@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Angular</title>
+<link href="bundle.css" rel="stylesheet"></head>
+
+<body ng-app="app">
+    <div ng-controller="UserController as $ctrl">
+        <div ng-if="$ctrl.error">
+            <span>Error: {{$ctrl.error.message}}</span>
+        </div>
+        <div ng-if="$ctrl.user">
+            <p>Name: {{$ctrl.user.name}}</p>
+            <p>Username: {{$ctrl.user.username}}</p>
+            <img ng-src="{{$ctrl.user.avatar}}" title="{{$ctrl.user.name}}" />
+        </div>
+    </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>

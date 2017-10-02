@@ -2,11 +2,11 @@ import angular from "angular";
 import "angular-ui-router";
 import routes from "./routes";
 
-import UserController from "./controllers/UserController";
+import cardComponent from "./components/card.component";
 import "./index.scss";
 
 angular
     .module("app", ["ui.router"])
     .config(routes)
-    .controller("UserController", UserController)
+    .component("cardComponent", cardComponent)
     ;
