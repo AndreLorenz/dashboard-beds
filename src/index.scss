@@ -1,4 +1,31 @@
+@mixin font-face($font-family, $font-url, $font-name, $font-name-svg, $weight) {
+  @font-face {
+    font: {
+      family: $font-family;
+      style: normal;
+      weight: normal;
+    }
+    src: url($font-url + '' + $font-name + '.eot') format('eot'),
+    url($font-url + '' + $font-name + '.eot?#iefix') format('embedded-opentype'),
+    url($font-url + '' + $font-name + '.woff') format('woff'),
+    url($font-url + '' + $font-name + '.ttf') format('truetype'),
+    url($font-url + '' + $font-name + '.svg#' + $font-name-svg) format('svg');
+  }
+}
+
+@include font-face('CentraleSansCndBook', './assets/fonts/book/', 'CentraleSansCnd-Book', '9c465f50cc9401b2100f6779db55c87e', 400);
+@include font-face('CentraleSansCndLight', './assets/fonts/light/', 'CentraleSansCnd-Light', '46db177c0af962a72579e1195d7386b5', 200);
+@include font-face('CentraleSansCndBold', './assets/fonts/bold/', 'CentraleSansCnd-Bold', 'c1d2e48f210e3d319a2408fccc961806', 700);
+@include font-face('CentraleSansCndMedium', './assets/fonts/medium/', 'CentraleSansCnd-Medium', 'e18fd08495e828c3596caed55368e131', 400);
+
+$font-bold: 'CentraleSansCndBold';
+$font-light: 'CentraleSansCndLight';
+$font-book: 'CentraleSansCndBook';
+$font-medium: 'CentraleSansCndMedium';
+$font-bookitalic: 'CentraleSansCndBookItalic';
+
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: $font-light;
 }
