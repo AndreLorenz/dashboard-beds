@@ -19,11 +19,12 @@
     "homepage": "https://github.com/tiagodws/starter-angular#readme",
     "dependencies": {
         "angular": "^1.6.4",
+        "angular-native-dragdrop": "^1.2.2",
         "angular-ui-router": "^0.4.2",
         "babel-core": "^6.24.0",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
         "babel-preset-angular": "^6.0.15",
-        "babel-preset-latest": "^6.24.0",
-        "babel-plugin-transform-object-rest-spread": "^6.23.0"
+        "babel-preset-latest": "^6.24.0"
     },
     "devDependencies": {
         "babel-loader": "^6.4.1",

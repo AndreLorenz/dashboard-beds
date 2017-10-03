@@ -16,7 +16,7 @@
       </div>
       
       <!-- Patient Card Content -->
-      <div class="card-content" ng-if="card.contentInfo.status === 'PATIENT'">
+      <div class="card-content" ng-if="card.contentInfo.status === 'PATIENT'" ui-draggable="true" drag="card">
         <div class="patient-name">
           <div ng-if="card.contentInfo.riskClassification" ng-style="{'background-color': card.contentInfo.riskClassification}" class="patient-risk"></div> {{card.contentInfo.patientName}}
         </div>
@@ -44,7 +44,7 @@
       </div>
       
       <!-- Available Card Content -->
-      <div class="card-content" ng-if="card.contentInfo.status === 'AVAILABLE'">
+      <div class="card-content" ng-if="card.contentInfo.status === 'AVAILABLE'"  ui-on-Drop="$ctrl.onDrop($event,$data,card)">
         <div class="patient-name">
            {{card.contentInfo.title}}
         </div>
