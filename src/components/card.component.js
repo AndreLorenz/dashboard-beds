@@ -15,8 +15,19 @@ class CardComponent {
     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(number => number % 2 ? this.cards.push({ number, title: `A0000${number}`, patientName: `João ${number}`, content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque, ante non interdum efficitur, mi purus pharetra libero, sed volutpat tellus urna nec quam. Fusce fermentum vehicula consectetur. Sed eget faucibus elit. Aliquam erat volutpat. Aenean fringilla nisl sem, a venenatis felis cursus consequat. Vestibulum vel nisi egestas, gravida diam quis, aliquet magna. `, footer: `Philips Clinical Informatics` }) :
     //   this.cards.push({ number, title: `A000${number}`, patientName: `João ${number}`, content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.  `, footer: `Philips Clinical Informatics` }));
     this.$rootScope.$on("ANGULAR_DRAG_START", (a, event, c, source) => {
-      // event.currentTarget.style.backgroundColor = "#333000"
+      let element = event.currentTarget;
+      setTimeout(() => {
+        element.classList.add("hide");
+      });
     });
+
+    this.$rootScope.$on("ANGULAR_DRAG_END", (a, event, c, source) => {
+      let element = event.currentTarget;
+      setTimeout(() => {
+        element.classList.remove("hide");
+      });
+    });
+
     this.cards = [{
         "bedInfo": {
           "statusColor": "#33333",

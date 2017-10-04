@@ -9,7 +9,7 @@
             <span>{{card.bedInfo.description}}</span>
           </div>
           <div class="bed-icons">
-            <img ng-repeat="status in card.bedInfo.bedStatus" class="icon-bed-check" src="./../assets/settings-gray.svg">
+            <img ng-repeat="status in card.bedInfo.bedStatus" draggable="false" class="icon-bed-check" src="./../assets/settings-gray.svg">
             <div class="settings-bed"></div>
           </div>
         </div>
@@ -30,7 +30,7 @@
             </span>
           </div>
           <div class="patient-icons">
-            <img ng-repeat="status in card.contentInfo.patientStatus" class="patient-icon" ng-src="{{status.image}}">
+            <img ng-repeat="status in card.contentInfo.patientStatus" draggable="false" class="patient-icon" ng-src="{{status.image}}">
           </div>
           <div class="additional-content" ng-if="card.encounterInfos && !card.encounterInfos.length">
             <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="additional-info">
@@ -45,7 +45,7 @@
         </div>
         <div ng-if="card.encounterInfos && card.encounterInfos.length" class="patient-encounter-icons">
           <div class="patient-encounter-info" ng-repeat="info in card.encounterInfos | limitTo: card.encounterInfos.limitTo">
-            <img class="patient-encounter-image" ng-src="{{info.image}}">
+            <img class="patient-encounter-image" ng-src="{{info.image}}" draggable="false">
           </div>
           <div class="patient-encounter-info-counter" ng-if="card.encounterInfos.remainingInfos">
             +{{card.encounterInfos.remainingInfos}}

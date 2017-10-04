@@ -182,3 +182,7 @@
   //@TODO - Fix outline radius
   outline: 2px solid #0096ED;
 }
+
+.hide{
+  transform:translateX(-9999px);
+}
