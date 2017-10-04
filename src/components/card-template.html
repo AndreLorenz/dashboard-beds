@@ -1,6 +1,6 @@
 <div class="container">
   <div class="cards-container">
-    <div class="cards-content" ng-repeat="card in $ctrl.cards">
+    <div class="cards-content" ng-class="{'blocked': card.contentInfo.status === 'BLOCKED', 'blocked': card.contentInfo.status === 'BLOCKED'}" ui-on-Drop="$ctrl.onDrop($event,$data,card)" drop-validate="$ctrl.dropValidate(card)" ng-repeat="card in $ctrl.cards">
       <div class="card-title">
         <div class="bed-informations">
           <div ng-if="card.bedInfo.statusColor" class="bed-status">
@@ -10,70 +10,84 @@
           </div>
           <div class="bed-icons">
             <img ng-repeat="status in card.bedInfo.bedStatus" class="icon-bed-check" src="./../assets/settings-gray.svg">
-            <img class="icon-bed-check" src="./../assets/settings-gray.svg">
+            <div class="settings-bed"></div>
           </div>
         </div>
       </div>
-      
+
       <!-- Patient Card Content -->
-      <div class="card-content" ng-if="card.contentInfo.status === 'PATIENT'" ui-draggable="true" drag="card">
-        <div class="patient-name">
-          <div ng-if="card.contentInfo.riskClassification" ng-style="{'background-color': card.contentInfo.riskClassification}" class="patient-risk"></div> {{card.contentInfo.patientName}}
-        </div>
-        <div class="patient-content">
-          <span>
-            {{card.contentInfo.encounterNumber}} 
-          </span>
-          <span>
-            {{card.contentInfo.physicianName}}
-          </span>
-        </div>
-        <div class="patient-icons">
-          <img ng-repeat="status in card.contentInfo.patientStatus" class="patient-icon" ng-src="{{status.image}}">
-        </div>
-        <div class="patient-additional-content">
-          <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="patient-additional-info">
-            <span class="patient-additional-info-label">
-              {{additional.label}}
+      <div ng-if="card.contentInfo.status === 'PATIENT'" ui-draggable="true" drag="card"  ui-on-Drop-failure="$ctrl.drag($event)">
+        <div class="card-content">
+          <div class="patient-name">
+            <div ng-if="card.contentInfo.riskClassification" ng-style="{'background-color': card.contentInfo.riskClassification}" class="patient-risk"></div> {{card.contentInfo.patientName}}
+          </div>
+          <div class="patient-content">
+            <span class="patient-encounter-number">
+              {{card.contentInfo.encounterNumber}} 
             </span>
-            <span class="patient-additional-info-description">
-              {{additional.description}}
+            <span>
+              {{card.contentInfo.physicianName}}
             </span>
+          </div>
+          <div class="patient-icons">
+            <img ng-repeat="status in card.contentInfo.patientStatus" class="patient-icon" ng-src="{{status.image}}">
+          </div>
+          <div class="additional-content" ng-if="card.encounterInfos && !card.encounterInfos.length">
+            <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="additional-info">
+              <span class="additional-info-label">
+                {{additional.label}}
+              </span>
+              <span class="additional-info-description">
+                {{additional.description}}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div ng-if="card.encounterInfos && card.encounterInfos.length" class="patient-encounter-icons">
+          <div class="patient-encounter-info" ng-repeat="info in card.encounterInfos | limitTo: card.encounterInfos.limitTo">
+            <img class="patient-encounter-image" ng-src="{{info.image}}">
+          </div>
+          <div class="patient-encounter-info-counter" ng-if="card.encounterInfos.remainingInfos">
+            +{{card.encounterInfos.remainingInfos}}
           </div>
         </div>
       </div>
-      
+
       <!-- Available Card Content -->
-      <div class="card-content" ng-if="card.contentInfo.status === 'AVAILABLE'"  ui-on-Drop="$ctrl.onDrop($event,$data,card)">
-        <div class="patient-name">
-           {{card.contentInfo.title}}
+      <div class="card-content" ng-if="card.contentInfo.status === 'AVAILABLE'">
+        <div class="available-name">
+          {{card.contentInfo.title}}
         </div>
-        <div class="patient-additional-content">
-          <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="patient-additional-info">
-            <span class="patient-additional-info-label">
+        <div class="additional-content">
+          <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="additional-info">
+            <span class="additional-info-label">
               {{additional.label}}
             </span>
-            <span class="patient-additional-info-description">
+            <span class="additional-info-description">
               {{additional.description}}
             </span>
           </div>
         </div>
       </div>
 
-      <!-- Patient Card Footer -->
-      
-      <div ng-if="card.encounterInfos && card.encounterInfos.length" class="patient-encounter-icons">
-        <div class="patient-encounter-info" ng-repeat="info in card.encounterInfos | limitTo: card.encounterInfos.limitTo">
-          <img  class="patient-encounter-image" ng-src="{{info.image}}">
-          
+      <!-- Blocked Card Content -->
+      <div class="card-content" ng-if="card.contentInfo.status === 'BLOCKED'">
+        <div class="available-name">
+          {{card.contentInfo.title}}
         </div>
-        <div class="patient-encounter-info-counter" ng-if="card.encounterInfos.remainingInfos">
-            +{{card.encounterInfos.remainingInfos}}
+        <div class="additional-content">
+          <div ng-repeat="additional in card.contentInfo.moreInfo | filter: {display: true}" class="additional-info">
+            <span class="additional-info-label">
+              {{additional.label}}
+            </span>
+            <span class="additional-info-description">
+              {{additional.description}}
+            </span>
+          </div>
         </div>
-        
       </div>
+
+
     </div>
   </div>
 </div>
-
-  

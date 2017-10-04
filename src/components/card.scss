@@ -1,5 +1,6 @@
 .cards-container {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
@@ -14,7 +15,14 @@
   box-shadow: 0px 0px 3px rgba(151, 151, 151, 0.20);
   border-radius: 4px 4px 4px 4px;
   margin: 8px;
+}
+
+.available {
   background-color: #FFFFFF;
+}
+
+.blocked {
+  background-color: #F5F5F5;
 }
 
 .card-title {
@@ -49,7 +57,7 @@
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background-color: red;
+  background-color: #0096ED;
 }
 
 .bed-icons {
@@ -75,6 +83,24 @@
   display: flex;
   font-weight: bold;
   font-size: 16px;
+  padding-bottom: 4px;
+}
+
+.available-name {
+  display: flex;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.additional-info:nth-child(1) {
+  padding-top: 16px;
 }
 
 .patient-content {
@@ -83,8 +109,12 @@
   font-size: 14px;
 }
 
+.patient-encounter-number {
+  padding-bottom: 8px;
+}
+
 .patient-icons {
-  margin: 16px 0px 16px 0px;
+  margin: 16px 0px 0px 0px;
 }
 
 .patient-icon {
@@ -98,17 +128,12 @@
   margin-right: 8px;
 }
 
-.patient-additional-info {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-.patient-additional-info-label {
+.additional-info-label {
   color: #696969;
+  padding-bottom: 4px;
 }
 
-.patient-additional-info-description {
+.additional-info-description {
   color: #333333;
 }
 
@@ -125,6 +150,12 @@
   padding-right: 8px;
 }
 
+.patient-dragging {
+  border: 1px dashed #CCCCCC;
+  width: 185px;
+  height: 135px;
+}
+
 .patient-encounter-info-counter {
   padding-right: 8px;
   color: #696969;
@@ -133,4 +164,21 @@
 .patient-encounter-image {
   max-height: 24px;
   max-width: 24px;
+}
+
+.settings-bed{
+  width: 24px;
+  height: 24px;
+  padding-left: 8px;
+  background: url('./../assets/settings-gray.svg') no-repeat right;
+  background-size: 24px 24px;
+}
+.settings-bed:hover{
+  background: url('./../assets/settings-blue.svg') no-repeat right;
+  cursor: pointer;
+}
+
+.on-drag-hover {
+  //@TODO - Fix outline radius
+  outline: 2px solid #0096ED;
 }
